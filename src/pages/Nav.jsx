@@ -1,46 +1,65 @@
-import React, { useState } from 'react';
-import styles from './Nav.module.scss';
+import st from '../styles/App.module.scss'
+import React, { useState, useCallback, useEffect } from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBars, faX } from '@fortawesome/free-solid-svg-icons'
+import useScrollSpy from '../hooks/useScrollSpy'
 
-const Nav = () => {
-  const [menuOpen, setMenuOpen] = useState(false);
+const sections = ['abouts', 'educations', 'experiences', 'projects', 'skills', 'contacts'];
 
-  const toggleMenu = () => setMenuOpen(!menuOpen);
-  const closeMenu = () => setMenuOpen(false);
+function Nav() {
+    const [scrolled, setScrolled] = useState(false);
+    const [show, setShow] = useState(false);
+    const active = useScrollSpy(sections, 120);
 
-  const navLinks = [
-    { href: '#about', label: 'About' },
-    { href: '#skills', label: 'Skills' },
-    { href: '#timeline', label: 'Timeline' },
-  ];
+    const handleScroll = useCallback(() => {
+        setScrolled(window.scrollY > 50);
+        setShow(false);
+    }, []);
 
-  return (
-    <nav className={styles.nav} aria-label="Main navigation">
-      <div className={styles.container}>
-        <a href="#about" className={styles.logo} onClick={closeMenu}>
-          Portfolio
-        </a>
-        <button
-          className={`${styles.hamburger} ${menuOpen ? styles.open : ''}`}
-          onClick={toggleMenu}
-          aria-label="Toggle navigation menu"
-          aria-expanded={menuOpen}
-        >
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-        <ul className={`${styles.menu} ${menuOpen ? styles.menuOpen : ''}`}>
-          {navLinks.map((link) => (
-            <li key={link.href}>
-              <a href={link.href} onClick={closeMenu}>
-                {link.label}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </nav>
-  );
-};
+    useEffect(() => {
+        window.addEventListener("scroll", handleScroll, { passive: true });
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, [handleScroll]);
+
+    const closeMenu = () => setShow(false);
+
+    return (
+        <header className={`${st.nav} ${scrolled ? st.navScrolled : ''}`}>
+            <div className={st.navInner}>
+                <a className={st.logo} href="#abouts" onClick={closeMenu}>
+                    <img src="https://i.imgur.com/YLt0FBm.jpg" alt="logo" />
+                </a>
+
+                <button
+                    className={st.hamburger}
+                    onClick={() => setShow(!show)}
+                    aria-label="Toggle navigation"
+                >
+                    <FontAwesomeIcon icon={show ? faX : faBars} />
+                </button>
+
+                <nav className={`${st.navLinks} ${show ? st.navOpen : ''}`}>
+                    {[
+                        ['abouts', 'About'],
+                        ['educations', 'Education'],
+                        ['experiences', 'Experience'],
+                        ['projects', 'Projects'],
+                        ['skills', 'Skills'],
+                        ['contacts', 'Contact'],
+                    ].map(([id, label]) => (
+                        <a
+                            key={id}
+                            href={`#${id}`}
+                            className={active === id ? st.navActive : ''}
+                            onClick={closeMenu}
+                        >
+                            {label}
+                        </a>
+                    ))}
+                </nav>
+            </div>
+        </header>
+    )
+}
 
 export default Nav;

@@ -1,23 +1,20 @@
-$primary: #2f6f4f;
-$secondary: #7a4e2d;
-$dark: #1a1d1a;
-$darker: #141614;
-$light: #e8e6e1;
-$grey: #6b6a66;
-$card-bg: #f4f2ee;
-$border-color: rgba(0, 0, 0, 0.08);
-$transition: all 0.25s ease;
+:root {
+    /* Base */
+    --primary-header-color: #e9f6f2;      /* near-white headings */
+    --primary-color: #04101f;             /* deep navy background */
+    --primary-text-color: #8fd4c2;         /* soft teal body text */
 
-$breakpoint-sm: 576px;
-$breakpoint-md: 768px;
-$breakpoint-lg: 992px;
-$breakpoint-xl: 1200px;
+    /* Accent palette — richer, warmer, more colorful */
+    --accent-teal: #34d1a0;
+    --accent-emerald: #2fcaa6;
+    --accent-cyan: #59c7e8;
+    --accent-amber: #f5b44c;
+    --accent-coral: #f28b7c;
+    --accent-violet: #b59af0;
 
-$max-width: 1200px;
-
-:export {
-  primary: $primary;
-  secondary: $secondary;
-  dark: $dark;
-  light: $light;
+    /* Semantic accents */
+    --accent-work: var(--accent-teal);
+    --accent-personal: var(--accent-amber);
+    --accent-education: var(--accent-cyan);
+    --accent-link: var(--accent-emerald);
 }
