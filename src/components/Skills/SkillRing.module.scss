@@ -6,6 +6,12 @@
   padding: 1rem;
 }
 
+.ringContainer {
+  position: relative;
+  width: 120px;
+  height: 120px;
+}
+
 .circleBg {
   transition: stroke-dashoffset 1s ease;
 }
@@ -15,13 +21,17 @@
 }
 
 .percentage {
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 600;
-  fill: var(--color-heading, #2c3e50);
+  fill: #1a1d1a;
+}
+
+.iconWrapper {
+  color: #2f6f4f;
 }
 
 .name {
-  margin-top: 0.5rem;
-  font-size: 1rem;
-  color: #555;
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+  color: #4b4a46;
 }
