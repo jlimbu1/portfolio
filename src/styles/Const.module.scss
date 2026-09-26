@@ -1,20 +1,29 @@
 :root {
-    /* Base */
-    --primary-header-color: #e9f6f2;      /* near-white headings */
-    --primary-color: #04101f;             /* deep navy background */
-    --primary-text-color: #8fd4c2;         /* soft teal body text */
+    /* Base — warm, natural palette */
+    --bg: #f7f3ec;              /* warm cream background */
+    --bg-elevated: #fdfbf7;     /* elevated card background */
+    --ink: #2b2723;             /* warm charcoal text */
+    --ink-muted: #6b645b;       /* muted warm grey */
 
-    /* Accent palette — richer, warmer, more colorful */
-    --accent-teal: #34d1a0;
-    --accent-emerald: #2fcaa6;
-    --accent-cyan: #59c7e8;
-    --accent-amber: #f5b44c;
-    --accent-coral: #f28b7c;
-    --accent-violet: #b59af0;
+    /* Accents — natural earth tones */
+    --accent-primary: #2f6b4f;         /* forest green */
+    --accent-primary-soft: rgba(47, 107, 79, 0.18);
+    --accent-primary-text: #1f4f38;
+    --accent-secondary: #c1653a;       /* terracotta / clay */
+    --accent-secondary-soft: rgba(193, 101, 58, 0.18);
+    --accent-gold: #b08d57;            /* muted sand gold */
+    --accent-slate: #5b7a6e;           /* muted sage slate */
 
-    /* Semantic accents */
-    --accent-work: var(--accent-teal);
-    --accent-personal: var(--accent-amber);
-    --accent-education: var(--accent-cyan);
-    --accent-link: var(--accent-emerald);
+    /* Alias for existing CSS */
+    --primary-header-color: var(--ink);
+    --primary-color: var(--bg);
+    --primary-text-color: var(--ink-muted);
+
+    /* Accordion surfaces */
+    --card-bg: var(--bg-elevated);
+    --border-color: #e4dbc9;
+    --hover-bg: rgba(47, 107, 79, 0.05);
+    --text-primary: var(--ink);
+    --text-muted: var(--ink-muted);
+    --accent-faint: rgba(47, 107, 79, 0.04);
 }

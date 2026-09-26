@@ -6,20 +6,23 @@ import Exps from './pages/Exps';
 import Projects from './pages/Projects';
 import Skills from './pages/Skills';
 import Footer from './pages/Footer';
+import { HighlightProvider } from './data/HighlightContext';
 
 function App() {
   return (
-    <div className={st.App}>
-      <Nav />
-      <main className={st.main_container}>
-        <Abouts />
-        <Edus />
-        <Exps />
-        <Projects />
-        <Skills />
-        <Footer />
-      </main>
-    </div>
+    <HighlightProvider>
+      <div className={st.App}>
+        <Nav />
+        <main className={st.main_container}>
+          <Abouts />
+          <Exps />
+          <Edus />
+          <Projects />
+          <Skills />
+          <Footer />
+        </main>
+      </div>
+    </HighlightProvider>
   );
 }
 

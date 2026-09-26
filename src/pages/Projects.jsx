@@ -1,61 +1,57 @@
-import st from '../styles/App.module.scss'
+import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLink, faCode, faArrowRight } from '@fortawesome/free-solid-svg-icons'
+import st from '../styles/App.module.scss'
+import Accordion from '../components/Accordion'
 import useScrollReveal from '../hooks/useScrollReveal'
+import { projects } from '../data/portfolioData'
+import { useHighlight } from '../data/HighlightContext'
+import { getTargetsForSkill } from '../data/skillTargets'
 
 function Projects() {
     const [ref, visible] = useScrollReveal();
+    const { activeSkillKey } = useHighlight();
+
+    // Newest first by approximate recency.
+    const sorted = [...projects].sort((a, b) => b.sortDate.localeCompare(a.sortDate));
+
+    const items = sorted.map((proj) => {
+        const targets = activeSkillKey ? getTargetsForSkill(activeSkillKey) : [];
+        const highlighted = targets.includes(proj.id);
+        return { ...proj, highlighted };
+    });
+
+    const renderHeader = (entry) => (
+        <div className={st.entryHeader}>
+            <div className={st.entryMeta}>
+                <span className={st.entryCompany}>
+                    <FontAwesomeIcon icon={faCode} className={st.icon} /> {entry.tech}
+                </span>
+            </div>
+            <h3 className={st.entryTitle}>{entry.title}</h3>
+        </div>
+    );
+
+    const renderBody = (entry) => (
+        <div>
+            <p className={st.entryDescription}>
+                <FontAwesomeIcon icon={faArrowRight} className={st.icon} /> {entry.description}
+            </p>
+            {entry.link && (
+                <p className={st.entryLink}>
+                    <FontAwesomeIcon icon={faLink} className={st.icon} />{' '}
+                    <a href={entry.link} target="_blank" rel="noreferrer noopener">{entry.linkLabel}</a>
+                </p>
+            )}
+        </div>
+    );
 
     return (
         <div id='projects' className={st.container}>
             <div ref={ref} className={`${st.reveal} ${visible ? st.visible : ''}`}>
-            <h2>Projects</h2>
-
-            <div className={st.card} id="ticket-challenger">
-                <h4>Ticket Challenger</h4>
-                <div className="details">
-                    <p><FontAwesomeIcon icon={faCode} className={st.icon} /> HTML5, CSS3, JavaScript</p>
-                    <p><FontAwesomeIcon icon={faLink} className={st.icon} /> <a href="https://github.com/jlimbu1/ticket-challenger" target="_blank" rel="noreferrer noopener">github.com/jlimbu1/ticket-challenger</a></p>
-                    <p><FontAwesomeIcon icon={faArrowRight} className={st.icon} /> An online ticket purchasing experience simulator to practice ticket-nabbing skills.</p>
-                </div>
+                <h2>Projects</h2>
+                <Accordion items={items} renderHeader={renderHeader} renderBody={renderBody} />
             </div>
-
-            <div className={st.card} id="arm-mooc">
-                <h4>MOOC Web Platform for ARM Assembly Language</h4>
-                <div className="details">
-                    <p><FontAwesomeIcon icon={faCode} className={st.icon} /> MongoDB, ExpressJS, ReactJS, NodeJS, Docker, Kubernetes</p>
-                    <p><FontAwesomeIcon icon={faLink} className={st.icon} /> <a href="https://drive.google.com/file/d/16zJW9AI0NrY946dJSZ8ZFHIefUuvtC9p/view?usp=sharing" target="_blank" rel="noreferrer noopener">Video Demo</a></p>
-                    <p><FontAwesomeIcon icon={faArrowRight} className={st.icon} /> A web application for university courses teaching ARM assembly language programming. No installation or hardware required. Built with the MERN stack and deployed via Docker on DigitalOcean Kubernetes.</p>
-                </div>
-            </div>
-
-            <div className={st.card} id="danger-dungeon">
-                <h4>Danger Dungeon (Browser Game)</h4>
-                <div className="details">
-                    <p><FontAwesomeIcon icon={faCode} className={st.icon} /> HTML5, CSS3, JavaScript, WebSocket</p>
-                    <p><FontAwesomeIcon icon={faLink} className={st.icon} /> <a href="https://drive.google.com/file/d/1VyiSmQ8MtSxPNo72K501zlJUbuuvc9ei/view?usp=sharing" target="_blank" rel="noreferrer noopener">Video Demo</a></p>
-                    <p><FontAwesomeIcon icon={faArrowRight} className={st.icon} /> A JavaScript-intensive 2-player browser game featuring sprite animations with internal frame timers, real-time player movement sync, and monster spawning via WebSockets.</p>
-                </div>
-            </div>
-
-            <div className={st.card} id="arduino-gameboy">
-                <h4>Arduino Game Boy</h4>
-                <div className="details">
-                    <p><FontAwesomeIcon icon={faCode} className={st.icon} /> C/C++, Arduino, OOP</p>
-                    <p><FontAwesomeIcon icon={faLink} className={st.icon} /> <a href="https://drive.google.com/file/d/12XV0AEYPPKn6YgKdmOQXr42JPOreNfrJ/view?usp=sharing" target="_blank" rel="noreferrer noopener">Video Demo</a></p>
-                    <p><FontAwesomeIcon icon={faArrowRight} className={st.icon} /> A Game Boy device built with Arduino as the microcontroller. Written in C++ using OOP methodology with LCD screen library for drawing platforms and entities.</p>
-                </div>
-            </div>
-
-            <div className={st.card} id="game-guide">
-                <h4>Game Guide Page</h4>
-                <div className="details">
-                    <p><FontAwesomeIcon icon={faCode} className={st.icon} /> HTML5, CSS3, JavaScript</p>
-                    <p><FontAwesomeIcon icon={faLink} className={st.icon} /> <a href="https://chillis.netlify.app" target="_blank" rel="noreferrer noopener">chillis.netlify.app</a></p>
-                    <p><FontAwesomeIcon icon={faArrowRight} className={st.icon} /> An information hub for an MMORPG guild, designed to be simple enough for other members to contribute to over time.</p>
-                </div>
-            </div>
-        </div>
         </div>
     )
 }

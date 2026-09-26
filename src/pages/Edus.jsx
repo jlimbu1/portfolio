@@ -1,44 +1,58 @@
-import st from '../styles/App.module.scss'
+import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBook, faGraduationCap, faCalendarDays } from '@fortawesome/free-solid-svg-icons'
+import st from '../styles/App.module.scss'
+import Accordion from '../components/Accordion'
 import useScrollReveal from '../hooks/useScrollReveal'
+import { educations } from '../data/portfolioData'
+import { useHighlight } from '../data/HighlightContext'
+import { getTargetsForSkill } from '../data/skillTargets'
 
 function Edus() {
     const [ref, visible] = useScrollReveal();
+    const { activeSkillKey } = useHighlight();
+
+    // Newest first: HKUST (2019-2022) then CCCU (2017-2019)
+    const sorted = [...educations].sort((a, b) => b.sortDate.localeCompare(a.sortDate));
+
+    const items = sorted.map((edu) => {
+        const targets = activeSkillKey ? getTargetsForSkill(activeSkillKey) : [];
+        const highlighted = targets.includes(edu.id);
+        return { ...edu, highlighted };
+    });
+
+    const renderHeader = (entry) => (
+        <div className={st.entryHeader}>
+            <div className={st.entryMeta}>
+                <span className={st.entryCompany}>
+                    <FontAwesomeIcon icon={faGraduationCap} className={st.icon} /> {entry.degree}
+                </span>
+                <span className={st.entryDate}>
+                    <FontAwesomeIcon icon={faCalendarDays} className={st.icon} /> {entry.date}
+                </span>
+            </div>
+            <h3 className={st.entryTitle}>{entry.institutionFull}</h3>
+        </div>
+    );
+
+    const renderBody = (entry) => (
+        <div>
+            <h4 className={st.coursesHeading}>Relevant Courses</h4>
+            <ul className={st.bullets}>
+                {entry.courses.map((c, i) => (
+                    <li key={i}>
+                        <FontAwesomeIcon icon={faBook} className={st.icon} /> {c}
+                    </li>
+                ))}
+            </ul>
+        </div>
+    );
 
     return (
         <div id='educations' className={st.container}>
             <div ref={ref} className={`${st.reveal} ${visible ? st.visible : ''}`}>
                 <h2>Education</h2>
-                <div className={st.eduGrid}>
-                    <div className={st.card}>
-                        <img src="https://i.imgur.com/gAcsR1B.png" alt="HKUST" />
-                        <div className="details">
-                            <p><FontAwesomeIcon icon={faGraduationCap} className={st.icon} /> Bachelor of Engineering in Computer Engineering</p>
-                            <p><FontAwesomeIcon icon={faCalendarDays} className={st.icon} /> Sept 2019 - Aug 2022</p>
-                            <h4>Relevant Courses</h4>
-                            <ul>
-                                <li><FontAwesomeIcon icon={faBook} className={st.icon} /> Internet Computing</li>
-                                <li><FontAwesomeIcon icon={faBook} className={st.icon} /> Mobile Application Development</li>
-                                <li><FontAwesomeIcon icon={faBook} className={st.icon} /> Discrete Mathematical Tools for Computer Science</li>
-                                <li><FontAwesomeIcon icon={faBook} className={st.icon} /> Industrial Experience</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div className={st.card}>
-                        <img src="https://i.imgur.com/mignBUa.png" alt="CCCU" />
-                        <div className="details">
-                            <p><FontAwesomeIcon icon={faGraduationCap} className={st.icon} /> Associate of Engineering</p>
-                            <p><FontAwesomeIcon icon={faCalendarDays} className={st.icon} /> Sept 2017 - Aug 2019</p>
-                            <h4>Relevant Courses</h4>
-                            <ul>
-                                <li><FontAwesomeIcon icon={faBook} className={st.icon} /> Introduction to Programming</li>
-                                <li><FontAwesomeIcon icon={faBook} className={st.icon} /> Object-Oriented Programming and Design</li>
-                                <li><FontAwesomeIcon icon={faBook} className={st.icon} /> Data Structure and Algorithms</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+                <Accordion items={items} renderHeader={renderHeader} renderBody={renderBody} />
             </div>
         </div>
     )
