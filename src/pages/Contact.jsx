@@ -1,7 +1,6 @@
 import st from '../styles/App.module.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faEnvelope, faPhone, faMapMarkerAlt, faGithub, faLinkedin, faTwitter } from '@fortawesome/free-solid-svg-icons'
-import { faEnvelope as faEnvelopeRegular } from '@fortawesome/free-regular-svg-icons'
+import { faEnvelope, faPhone, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons'
 import useScrollReveal from '../hooks/useScrollReveal'
 
 function Contact() {
@@ -40,13 +39,13 @@ function Contact() {
 
                         <div className={st.socialLinks}>
                             <a href="https://github.com/jlimbu1" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-                                <FontAwesomeIcon icon={faGithub} className={st.socialIcon} />
+                                <i className="devicon-github-original"></i>
                             </a>
                             <a href="https://linkedin.com/in/jimmy-limbu" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                                <FontAwesomeIcon icon={faLinkedin} className={st.socialIcon} />
+                                <i className="devicon-linkedin-plain"></i>
                             </a>
                             <a href="https://twitter.com/jimmy_limbu" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
-                                <FontAwesomeIcon icon={faTwitter} className={st.socialIcon} />
+                                <i className="devicon-twitter-original"></i>
                             </a>
                         </div>
                     </div>
