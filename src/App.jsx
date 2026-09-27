@@ -5,7 +5,6 @@ import Edus from './pages/Edus';
 import Exps from './pages/Exps';
 import Projects from './pages/Projects';
 import Skills from './pages/Skills';
-import Contact from './pages/Contact';
 import Footer from './pages/Footer';
 import { HighlightProvider } from './data/HighlightContext';
 
@@ -20,7 +19,6 @@ function App() {
           <Edus />
           <Projects />
           <Skills />
-          <Contact />
           <Footer />
         </main>
       </div>
