@@ -1,29 +1,102 @@
 :root {
-    /* Base — warm, natural palette */
-    --bg: #f7f3ec;              /* warm cream background */
-    --bg-elevated: #fdfbf7;     /* elevated card background */
-    --ink: #2b2723;             /* warm charcoal text */
-    --ink-muted: #6b645b;       /* muted warm grey */
+    /* ===== Brand (JimmyCorp styleguide — colors.md) ===== */
+    --primary: #825991;
+    --primary-hover: #6a4776;
+    --primary-dark: #5a3b63;
+    --primary-light: #9b74a9;
+    --secondary: #50C878;
+    --accent: #FF6B35;
+    --accent-dark: #D9531E;
 
-    /* Accents — natural earth tones */
-    --accent-primary: #2f6b4f;         /* forest green */
-    --accent-primary-soft: rgba(47, 107, 79, 0.18);
-    --accent-primary-text: #1f4f38;
-    --accent-secondary: #c1653a;       /* terracotta / clay */
-    --accent-secondary-soft: rgba(193, 101, 58, 0.18);
-    --accent-gold: #b08d57;            /* muted sand gold */
-    --accent-slate: #5b7a6e;           /* muted sage slate */
+    /* ===== Neutrals ===== */
+    --background: #F8F9FA;
+    --surface: #FFFFFF;
+    --surface-subtle: #FBFBFC;
+    --text-primary: #212529;
+    --text-secondary: #6C757D;
+    --text-disabled: #ADB5BD;
+    --border: #E9ECEF;
+    --border-strong: #DEE2E6;
+    --hover: #F0F0F0;
 
-    /* Alias for existing CSS */
-    --primary-header-color: var(--ink);
-    --primary-color: var(--bg);
-    --primary-text-color: var(--ink-muted);
+    /* ===== Status ===== */
+    --success: #27AE60;
+    --success-bg: #D4F0E6;
+    --success-text: #1E7E34;
+    --warning: #F39C12;
+    --warning-bg: #FFF3CD;
+    --warning-text: #856404;
+    --error: #E74C3C;
+    --error-hover: #D63031;
+    --error-bg: #F8D7DA;
+    --error-text: #721C24;
+    --info: #3498DB;
+    --info-bg: #D1ECF1;
+    --info-text: #0C5460;
 
-    /* Accordion surfaces */
-    --card-bg: var(--bg-elevated);
-    --border-color: #e4dbc9;
-    --hover-bg: rgba(47, 107, 79, 0.05);
-    --text-primary: var(--ink);
-    --text-muted: var(--ink-muted);
-    --accent-faint: rgba(47, 107, 79, 0.04);
+    /* ===== Spacing (8px base unit — spacing.md) ===== */
+    --spacing-tiny: 4px;
+    --spacing-small: 8px;
+    --spacing-medium: 16px;
+    --spacing-large: 24px;
+    --spacing-xl: 32px;
+    --spacing-xxl: 48px;
+    --spacing-xxxl: 64px;
+
+    /* ===== Typography (typography.md) ===== */
+    --font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text",
+        "Helvetica Neue", "Segoe UI", Roboto, Arial, sans-serif;
+    --font-mono: "SF Mono", SFMono-Regular, ui-monospace, Menlo, Consolas, "Courier New", monospace;
+    --font-serif: Didot, "Bodoni 72", "Bodoni MT", Bodoni, "Playfair Display",
+        "Cormorant Garamond", Georgia, "Times New Roman", serif;
+    --text-h1: clamp(2rem, 5vw, 3rem);
+    --text-h2: clamp(1.5rem, 3.5vw, 2.25rem);
+    --text-h3: 1.5rem;
+    --text-h4: 1.25rem;
+    --text-h5: 1.125rem;
+    --text-body-large: 1.125rem;
+    --text-body: 1rem;
+    --text-body-small: 0.875rem;
+    --text-caption: 0.75rem;
+
+    /* ===== Radius ===== */
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 14px;
+    --radius-pill: 999px;
+
+    /* ===== Shadows ===== */
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.12);
+    --shadow-xl: 0 24px 64px rgba(0, 0, 0, 0.18);
+
+    /* ===== Motion ===== */
+    --ease: cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-fast: 0.15s var(--ease);
+    --transition: 0.25s var(--ease);
+    --transition-slow: 0.4s var(--ease);
+
+    /* ===== Legacy aliases (kept for existing component styles) ===== */
+    --bg: var(--background);
+    --bg-elevated: var(--surface);
+    --ink: var(--text-primary);
+    --ink-muted: var(--text-secondary);
+    --text-muted: var(--text-secondary);
+    --card-bg: var(--surface);
+    --hover-bg: var(--surface-subtle);
+    --border-color: var(--border);
+
+    --accent-primary: var(--primary);
+    --accent-primary-soft: rgba(130, 89, 145, 0.18);
+    --accent-primary-text: var(--primary-dark);
+    --accent-secondary: var(--accent);
+    --accent-secondary-soft: rgba(255, 107, 53, 0.18);
+    --accent-slate: var(--secondary);
+    --accent-gold: var(--info);
+    --accent-faint: rgba(130, 89, 145, 0.04);
+
+    --primary-header-color: var(--text-primary);
+    --primary-color: var(--background);
+    --primary-text-color: var(--text-secondary);
 }
