@@ -27,7 +27,7 @@ function Nav() {
         <header className={`${st.nav} ${scrolled ? st.navScrolled : ''}`}>
             <div className={st.navInner}>
                 <a className={st.logo} href="#abouts" onClick={closeMenu}>
-                    <img src="https://i.imgur.com/YLt0FBm.jpg" alt="logo" />
+                    <img src="logo.svg" alt="logo" />
                 </a>
 
                 <button
