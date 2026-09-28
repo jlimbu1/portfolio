@@ -7,7 +7,7 @@ export const experiences = [
     type: 'experience',
     role: 'Senior Frontend Engineer',
     company: 'DIY ROCKS (HK) Limited',
-    date: 'Jan 2026 - Present',
+    date: 'Jan 2026 - Aug 2026',
     sortDate: '2026-01',
     bullets: [
       'Act as technical liaison between product, external dev teams, and internal stakeholders, translating business requirements into actionable specifications.',

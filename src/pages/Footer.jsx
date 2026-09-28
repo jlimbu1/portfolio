@@ -27,7 +27,7 @@ function Footer() {
                     </svg>
                 </a>
             </div>
-            <p className={st.copyright}>&copy; {new Date().getFullYear()} Jimmy Limbu. All rights reserved.</p>
+            <p className={st.copyright}>&copy; {new Date().getFullYear()} LIMBU Jimmy. All rights reserved.</p>
             </div>
         </footer>
     )
