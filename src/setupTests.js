@@ -1,10 +1,10 @@
 // Mock IntersectionObserver
 // IntersectionObserver is not available in jsdom, mock it
 class MockIntersectionObserver {
-  constructor(callback, options) {}
-  observe() {}
-  unobserve() {}
-  disconnect() {}
+    constructor(callback, options) {}
+    observe() {}
+    unobserve() {}
+    disconnect() {}
 }
 global.IntersectionObserver = MockIntersectionObserver;
 

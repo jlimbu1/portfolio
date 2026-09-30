@@ -1,12 +1,12 @@
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBook, faGraduationCap, faCalendarDays } from '@fortawesome/free-solid-svg-icons'
-import st from '../styles/App.module.scss'
-import Accordion from '../components/Accordion'
-import useScrollReveal from '../hooks/useScrollReveal'
-import { educations } from '../data/portfolioData'
-import { useHighlight } from '../data/HighlightContext'
-import { getTargetsForSkill } from '../data/skillTargets'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBook, faGraduationCap, faCalendarDays } from '@fortawesome/free-solid-svg-icons';
+import st from '../styles/App.module.scss';
+import Accordion from '../components/Accordion';
+import useScrollReveal from '../hooks/useScrollReveal';
+import { educations } from '../data/portfolioData';
+import { useHighlight } from '../data/HighlightContext';
+import { getTargetsForSkill } from '../data/skillTargets';
 
 function Edus() {
     const [ref, visible] = useScrollReveal();
@@ -49,13 +49,13 @@ function Edus() {
     );
 
     return (
-        <div id='educations' className={st.container}>
+        <div id="educations" className={st.container}>
             <div ref={ref} className={`${st.reveal} ${visible ? st.visible : ''}`}>
                 <h2>Education</h2>
                 <Accordion items={items} renderHeader={renderHeader} renderBody={renderBody} />
             </div>
         </div>
-    )
+    );
 }
 
 export default Edus;

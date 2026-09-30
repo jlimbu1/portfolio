@@ -1,12 +1,12 @@
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowRight, faBuilding } from '@fortawesome/free-solid-svg-icons'
-import st from '../styles/App.module.scss'
-import Accordion from '../components/Accordion'
-import useScrollReveal from '../hooks/useScrollReveal'
-import { experiences } from '../data/portfolioData'
-import { useHighlight } from '../data/HighlightContext'
-import { getTargetsForSkill } from '../data/skillTargets'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowRight, faBuilding } from '@fortawesome/free-solid-svg-icons';
+import st from '../styles/App.module.scss';
+import Accordion from '../components/Accordion';
+import useScrollReveal from '../hooks/useScrollReveal';
+import { experiences } from '../data/portfolioData';
+import { useHighlight } from '../data/HighlightContext';
+import { getTargetsForSkill } from '../data/skillTargets';
 
 function Exps() {
     const [ref, visible] = useScrollReveal();
@@ -47,13 +47,13 @@ function Exps() {
     );
 
     return (
-        <div id='experiences' className={st.container}>
+        <div id="experiences" className={st.container}>
             <div ref={ref} className={`${st.reveal} ${visible ? st.visible : ''}`}>
                 <h2>Experience</h2>
                 <Accordion items={items} renderHeader={renderHeader} renderBody={renderBody} />
             </div>
         </div>
-    )
+    );
 }
 
 export default Exps;

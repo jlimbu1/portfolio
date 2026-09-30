@@ -1,12 +1,12 @@
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faLink, faCode, faArrowRight } from '@fortawesome/free-solid-svg-icons'
-import st from '../styles/App.module.scss'
-import Accordion from '../components/Accordion'
-import useScrollReveal from '../hooks/useScrollReveal'
-import { projects } from '../data/portfolioData'
-import { useHighlight } from '../data/HighlightContext'
-import { getTargetsForSkill } from '../data/skillTargets'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faLink, faCode, faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import st from '../styles/App.module.scss';
+import Accordion from '../components/Accordion';
+import useScrollReveal from '../hooks/useScrollReveal';
+import { projects } from '../data/portfolioData';
+import { useHighlight } from '../data/HighlightContext';
+import { getTargetsForSkill } from '../data/skillTargets';
 
 function Projects() {
     const [ref, visible] = useScrollReveal();
@@ -40,20 +40,22 @@ function Projects() {
             {entry.link && (
                 <p className={st.entryLink}>
                     <FontAwesomeIcon icon={faLink} className={st.icon} />{' '}
-                    <a href={entry.link} target="_blank" rel="noreferrer noopener">{entry.linkLabel}</a>
+                    <a href={entry.link} target="_blank" rel="noreferrer noopener">
+                        {entry.linkLabel}
+                    </a>
                 </p>
             )}
         </div>
     );
 
     return (
-        <div id='projects' className={st.container}>
+        <div id="projects" className={st.container}>
             <div ref={ref} className={`${st.reveal} ${visible ? st.visible : ''}`}>
                 <h2>Projects</h2>
                 <Accordion items={items} renderHeader={renderHeader} renderBody={renderBody} />
             </div>
         </div>
-    )
+    );
 }
 
 export default Projects;

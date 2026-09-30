@@ -1,8 +1,8 @@
-import st from '../styles/App.module.scss'
-import React, { useState, useCallback, useEffect } from "react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBars, faX } from '@fortawesome/free-solid-svg-icons'
-import useScrollSpy from '../hooks/useScrollSpy'
+import st from '../styles/App.module.scss';
+import React, { useState, useCallback, useEffect } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars, faX } from '@fortawesome/free-solid-svg-icons';
+import useScrollSpy from '../hooks/useScrollSpy';
 
 const sections = ['abouts', 'experiences', 'educations', 'projects', 'skills', 'contacts'];
 
@@ -17,8 +17,8 @@ function Nav() {
     }, []);
 
     useEffect(() => {
-        window.addEventListener("scroll", handleScroll, { passive: true });
-        return () => window.removeEventListener("scroll", handleScroll);
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        return () => window.removeEventListener('scroll', handleScroll);
     }, [handleScroll]);
 
     const closeMenu = () => setShow(false);
@@ -59,7 +59,7 @@ function Nav() {
                 </nav>
             </div>
         </header>
-    )
+    );
 }
 
 export default Nav;

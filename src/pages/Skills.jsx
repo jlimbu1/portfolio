@@ -1,9 +1,9 @@
 import React from 'react';
-import st from '../styles/App.module.scss'
-import useScrollReveal from '../hooks/useScrollReveal'
-import { skillGroups } from '../data/portfolioData'
-import { getTargetsForSkill } from '../data/skillTargets'
-import { useHighlight } from '../data/HighlightContext'
+import st from '../styles/App.module.scss';
+import useScrollReveal from '../hooks/useScrollReveal';
+import { skillGroups } from '../data/portfolioData';
+import { getTargetsForSkill } from '../data/skillTargets';
+import { useHighlight } from '../data/HighlightContext';
 
 const scrollTo = (id) => {
     const el = document.getElementById(id);
@@ -48,12 +48,12 @@ function Skills() {
     };
 
     return (
-        <div id='skills' className={st.container}>
+        <div id="skills" className={st.container}>
             <div ref={ref} className={`${st.reveal} ${visible ? st.visible : ''}`}>
                 <h2>Skills</h2>
                 <p className={st.skillsIntro}>
-                    Grouped by where I actually used them. Hover or click a skill to highlight every related
-                    work, project, or education entry.
+                    Grouped by where I actually used them. Hover or click a skill to highlight every
+                    related work, project, or education entry.
                 </p>
 
                 {skillGroups.map((group) => (
@@ -78,7 +78,7 @@ function Skills() {
                 ))}
             </div>
         </div>
-    )
+    );
 }
 
 export default Skills;

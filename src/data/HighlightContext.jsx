@@ -13,17 +13,16 @@ export function HighlightProvider({ children }) {
 
     const clearActiveSkill = useCallback(() => setActiveSkillKey(null), []);
 
-    const value = useMemo(() => ({
-        activeSkillKey,
-        setActiveSkill,
-        clearActiveSkill,
-    }), [activeSkillKey, setActiveSkill, clearActiveSkill]);
-
-    return (
-        <HighlightContext.Provider value={value}>
-            {children}
-        </HighlightContext.Provider>
+    const value = useMemo(
+        () => ({
+            activeSkillKey,
+            setActiveSkill,
+            clearActiveSkill,
+        }),
+        [activeSkillKey, setActiveSkill, clearActiveSkill],
     );
+
+    return <HighlightContext.Provider value={value}>{children}</HighlightContext.Provider>;
 }
 
 export function useHighlight() {

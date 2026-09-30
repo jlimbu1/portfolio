@@ -4,35 +4,35 @@
     --primary-hover: #6a4776;
     --primary-dark: #5a3b63;
     --primary-light: #9b74a9;
-    --secondary: #50C878;
-    --accent: #FF6B35;
-    --accent-dark: #D9531E;
+    --secondary: #50c878;
+    --accent: #ff6b35;
+    --accent-dark: #d9531e;
 
     /* ===== Neutrals ===== */
-    --background: #F8F9FA;
-    --surface: #FFFFFF;
-    --surface-subtle: #FBFBFC;
+    --background: #f8f9fa;
+    --surface: #ffffff;
+    --surface-subtle: #fbfbfc;
     --text-primary: #212529;
-    --text-secondary: #6C757D;
-    --text-disabled: #ADB5BD;
-    --border: #E9ECEF;
-    --border-strong: #DEE2E6;
-    --hover: #F0F0F0;
+    --text-secondary: #6c757d;
+    --text-disabled: #adb5bd;
+    --border: #e9ecef;
+    --border-strong: #dee2e6;
+    --hover: #f0f0f0;
 
     /* ===== Status ===== */
-    --success: #27AE60;
-    --success-bg: #D4F0E6;
-    --success-text: #1E7E34;
-    --warning: #F39C12;
-    --warning-bg: #FFF3CD;
+    --success: #27ae60;
+    --success-bg: #d4f0e6;
+    --success-text: #1e7e34;
+    --warning: #f39c12;
+    --warning-bg: #fff3cd;
     --warning-text: #856404;
-    --error: #E74C3C;
-    --error-hover: #D63031;
-    --error-bg: #F8D7DA;
-    --error-text: #721C24;
-    --info: #3498DB;
-    --info-bg: #D1ECF1;
-    --info-text: #0C5460;
+    --error: #e74c3c;
+    --error-hover: #d63031;
+    --error-bg: #f8d7da;
+    --error-text: #721c24;
+    --info: #3498db;
+    --info-bg: #d1ecf1;
+    --info-text: #0c5460;
 
     /* ===== Spacing (8px base unit — spacing.md) ===== */
     --spacing-tiny: 4px;
@@ -44,11 +44,13 @@
     --spacing-xxxl: 64px;
 
     /* ===== Typography (typography.md) ===== */
-    --font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text",
-        "Helvetica Neue", "Segoe UI", Roboto, Arial, sans-serif;
-    --font-mono: "SF Mono", SFMono-Regular, ui-monospace, Menlo, Consolas, "Courier New", monospace;
-    --font-serif: Didot, "Bodoni 72", "Bodoni MT", Bodoni, "Playfair Display",
-        "Cormorant Garamond", Georgia, "Times New Roman", serif;
+    --font-family:
+        -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue',
+        'Segoe UI', Roboto, Arial, sans-serif;
+    --font-mono: 'SF Mono', SFMono-Regular, ui-monospace, Menlo, Consolas, 'Courier New', monospace;
+    --font-serif:
+        Didot, 'Bodoni 72', 'Bodoni MT', Bodoni, 'Playfair Display', 'Cormorant Garamond', Georgia,
+        'Times New Roman', serif;
     --text-h1: clamp(2rem, 5vw, 3rem);
     --text-h2: clamp(1.5rem, 3.5vw, 2.25rem);
     --text-h3: 1.5rem;

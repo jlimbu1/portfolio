@@ -1,94 +1,97 @@
 .accordion {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 }
 
 .item {
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-md);
-  background: var(--card-bg);
-  overflow: hidden;
-  box-shadow: var(--shadow-sm);
-  transition: border-color var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
-  scroll-margin-top: 90px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    background: var(--card-bg);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition:
+        border-color var(--transition-fast),
+        box-shadow var(--transition-fast),
+        background var(--transition-fast);
+    scroll-margin-top: 90px;
 }
 
 .item:hover {
-  border-color: var(--accent-primary);
-  box-shadow: var(--shadow-md);
+    border-color: var(--accent-primary);
+    box-shadow: var(--shadow-md);
 }
 
 /* Skill-linked highlight state */
 .item.highlighted {
-  border-color: var(--accent-primary);
-  background: var(--accent-faint);
-  box-shadow: 0 0 0 2px var(--accent-primary-soft);
+    border-color: var(--accent-primary);
+    background: var(--accent-faint);
+    box-shadow: 0 0 0 2px var(--accent-primary-soft);
 }
 
 .item.highlighted .header {
-  color: var(--accent-primary-text);
+    color: var(--accent-primary-text);
 }
 
 .item.open {
-  border-color: var(--accent-primary);
+    border-color: var(--accent-primary);
 }
 
 .header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  width: 100%;
-  padding: 16px 20px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  text-align: left;
-  font: inherit;
-  color: var(--text-primary);
-  transition: background 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    width: 100%;
+    padding: 16px 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    font: inherit;
+    color: var(--text-primary);
+    transition: background 0.2s;
 }
 
 .header:hover {
-  background: var(--hover-bg);
+    background: var(--hover-bg);
 }
 
 .headerContent {
-  flex: 1;
-  min-width: 0;
+    flex: 1;
+    min-width: 0;
 }
 
 .chevron {
-  display: inline-flex;
-  color: var(--text-muted);
-  transition: transform 0.25s ease;
-  flex-shrink: 0;
+    display: inline-flex;
+    color: var(--text-muted);
+    transition: transform 0.25s ease;
+    flex-shrink: 0;
 }
 
 .item.open .chevron {
-  transform: rotate(180deg);
+    transform: rotate(180deg);
 }
 
 .body {
-  border-top: 1px solid var(--border-color);
+    border-top: 1px solid var(--border-color);
 }
 
 .bodyInner {
-  padding: 16px 20px 20px;
+    padding: 16px 20px 20px;
 }
 
 @media (max-width: 480px) {
-  .header {
-    padding: 14px 16px;
-  }
-  .bodyInner {
-    padding: 12px 16px 16px;
-  }
+    .header {
+        padding: 14px 16px;
+    }
+    .bodyInner {
+        padding: 12px 16px 16px;
+    }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .chevron {
-    transition: none;
-  }
+    .chevron {
+        transition: none;
+    }
 }
